@@ -26,14 +26,12 @@ public class AdminController {
         this.userService = userService;
     }
 
-
     @GetMapping
     public String userPage(Model model) {
 
         model.addAttribute("users", userService.getAllUsers());
         return "admin";
     }
-
 
 
     @GetMapping("/user-create")

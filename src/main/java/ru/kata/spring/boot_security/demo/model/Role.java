@@ -27,7 +27,6 @@ public class Role implements GrantedAuthority {
     private List<User> users;
 
     public Role() {
-
     }
 
     public Role(String name) {
@@ -64,5 +63,4 @@ public class Role implements GrantedAuthority {
         String str = this.getAuthority();
         return str.replace("ROLE_", "");
     }
-
 }
