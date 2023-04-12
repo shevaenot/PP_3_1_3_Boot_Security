@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Редактировать</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/admin/user-update/{id} (id=${user.getId()})}" th:object="${user}">
+  <label for="id">Id: </label>
+  <input type="text" th:field="*{id}" id="id"/>
+  <br/>
+  <label for="username">Имя: </label>
+  <input type="text" th:field="*{username}" id="username"/>
+  <br/>
+  <label for="surname">Имя: </label>
+  <input type="text" th:field="*{surname}" id="surname"/>
+  <br/>
+  <label for="age">Age: </label>
+  <input type="text" th:field="*{age}" id="age"/>
+  <br/>
+  <label for="password">Пароль: </label>
+  <input type="text" th:field="*{password}" id="password"/>
+  <br/>
+  <label>Roles: </label>
+  <input type="checkbox"
+         th:each="role : ${roles}"
+         th:text="${role}"
+         th:value="${role}"
+         th:field="*{roles}"
+  />
+  <br/>
+  <input type="submit" value="Обновить"/>
+</form>
+<hr>
+<a th:href="@{/logout}">Logout</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+    <p><a href="/admin">Admin</a></p>
+    <p><a href="/user">User</a></p>
+
+    <form th:action="@{/logout}" th:method="POST">
+        <input type="submit" value="Logout" />
+</div>
+</body>
+</html>
