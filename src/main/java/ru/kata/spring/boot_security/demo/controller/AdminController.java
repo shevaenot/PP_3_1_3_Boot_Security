@@ -11,7 +11,9 @@ import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @PreAuthorize("hasRole('ADMIN')")
@@ -45,7 +47,7 @@ public class AdminController {
     public String create(@ModelAttribute("user") User user,
                          @RequestParam(value = "roles") String[] roles) {
 
-        List<Role> rolesList = new ArrayList<>();
+        Set<Role> rolesList = new HashSet<>();
         for (String role : roles) {
             rolesList.add(roleService.getByName("ROLE_" + role));
         }
@@ -68,7 +70,7 @@ public class AdminController {
     @PostMapping("/user-update/{id}")
     public String update(@ModelAttribute("user") User user,
                          @RequestParam(value = "roles") String[] roles) {
-        List<Role> rolesList = new ArrayList<>();
+        Set<Role> rolesList = new HashSet<>();
         for (String role : roles) {
             rolesList.add(roleService.getByName("ROLE_" + role));
         }
